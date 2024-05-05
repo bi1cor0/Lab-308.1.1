@@ -53,7 +53,7 @@ console.log(`All numbers should reach all given criteria: ${isValid}`);
 
 //Created variables for the trip cost. I separated the var's into how many mpg at what mph. 
 const overalMiles = 1500;
-const gasAt55 = 30;
+const gasAt55 = 30; //gasAt var reflects the mph while the value represents the mpg
 const gasAt60 = 28;
 const gasAt75 = 23;
 const budget = 175;
@@ -67,21 +67,37 @@ const totalgasSlow = (overalMiles / gasAt55);
 const totalgasLimit = (overalMiles / gasAt60);
 const totalgasbitFast = (overalMiles / gasAt75);
 
+// print results
 const totalGallons = (`Total amount of gas at 55 mph: ${totalgasSlow} gallons \n
 Total amount of gas at 60 mph: ${totalgasLimit} gallons \n
 Total amount of gas at 75 mph: ${totalgasbitFast} gallons`);
 
 console.log(totalGallons)
 
-const budgetSlow = ((gasAt55 * gasCost) <= budget);
-const budgetLimit = ((gasAt60 * gasCost) <= budget);
-const budgetFast = ((gasAt75 * gasCost) <= budget);
+// Compare total amount of gas used in trip with the budget var
+const budgetSlow = ((gasCost * totalgasSlow) <= budget);
+const budgetLimit = ((gasCost * totalgasLimit) <= budget);
+const budgetFast = ((gasCost * totalgasbitFast) <= budget);
+
+// print results
+const budgetFriendly = (`Traveling at 55 mph is within budget: ${budgetSlow} \n
+Traveling at 60 mph is within budget: ${budgetLimit}  \n
+Traveling at 75 mph is within budget: ${budgetFast} `);
+
+console.log(budgetFriendly);
+
+// calculate total amount of hours in the trip by dividing the target miles with the mph
+const hoursSlow = (overalMiles / slow);
+const hoursLimit = (overalMiles / speedlimit);
+const hoursFast = (overalMiles / abitfast);
+
+// print results
+const totalHours = (`Traveling at 55 mph the trip will take: ${hoursSlow} hours.\n
+Traveling at 60 mph the trip will take: ${hoursLimit} hours. \n
+Traveling at 75 mph the trip will take: ${hoursFast} hours.`);
 
 
-
-
-
-
+console.log(totalHours);
 
 
 
